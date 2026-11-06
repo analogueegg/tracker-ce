@@ -80,7 +80,8 @@ void cFileManager::loadPatternFromWorkspace(uint8_t index)
     }
     else if (loadStatus == fileTransferFileNoExist) // brak pliku patternu
     {
-        sequencer.clearPattern(&fileManagerPatternBuffer);
+        sequencer.clearPattern(&fileManagerPatternBuffer,
+                               mtProject.defaultSequenceLength);
         sequencer.copyBufferToBufferPattern((uint8_t*)&fileManagerPatternBuffer);
         preloadedPattern = loadedPattern;
 
@@ -199,7 +200,8 @@ bool cFileManager::loadWorkspacePatternNow(uint8_t index)
     if (!fileSystem->exists(patternToLoad))
     {
         report(" load patern now - file no exist ", patternToLoad);
-        status = false;
+        sequencer.clearPattern(destPattern, mtProject.defaultSequenceLength);
+        return false;
     }
     else
     {
