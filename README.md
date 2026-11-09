@@ -6,10 +6,16 @@ Built directly from the original Polyend firmware source code, Tracker CE opens 
 
 ### Download Firmware:
 
-See [Releases](https://github.com/polyend/tracker-ce/releases) for the latest downloads for all devices.
+##### Stable Releases: 
+* See [Releases](https://github.com/polyend/tracker-ce/releases) for the latest official downloads for all devices.
+* See [`CHANGELOG.md`](CHANGELOG.md) for the full list of changes in the official tagged releases.
 
-### What's New:
-See [`CHANGELOG.md`](CHANGELOG.md) for the full list of new features and improvements.
+##### Latest Beta Builds: 
+Automatically built from the latest changes in `main` (for all 3 devices):
+
+* Download the latest [Beta Firmware builds (`.zip`)](https://nightly.link/polyend/tracker-ce/workflows/build.yml/main/polyend-tracker-ce-firmware.zip)
+* Download the latest [Sample Editor Effects (`.zip`)](https://nightly.link/polyend/tracker-ce/workflows/build.yml/main/polyend-tracker-ce-effects.zip)
+* See [`UPCOMING.md`](UPCOMING.md) to find out what's new in these Beta Builds.
 
 ---
 
@@ -36,7 +42,8 @@ This unified codebase powers all three hardware instruments in the Tracker famil
 .
 ├── Makefile                # Unified top-level build & version management
 ├── version.mk              # Centralized version & build number configuration
-├── CHANGELOG.md            # Release history & feature highlights
+├── CHANGELOG.md            # Stable release history & feature highlights
+├── UPCOMING.md             # Unreleased changes currently in the beta builds
 ├── CONTRIBUTING.md         # Contribution rules & hardware testing workflow
 ├── LICENSE                 # MIT License (+ No Wholesale Commercial Clones & Precompiled Synth Terms)
 ├── NOTICE.md               # Third-party open-source attributions
