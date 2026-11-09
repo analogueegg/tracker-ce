@@ -80,11 +80,11 @@ void Sequencer::initAfterReadConfig()
     setExternalClockComp(mtConfig.midi.slaveClockComp);
 }
 
-void Sequencer::clearAllPatternSlots()
+void Sequencer::clearAllPatternSlots(uint8_t defaultSequenceLength)
 {
     for (strPattern& pattern : seq)
     {
-        clearPattern(&pattern);
+        clearPattern(&pattern, defaultSequenceLength);
     }
 }
 
