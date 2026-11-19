@@ -68,8 +68,7 @@ bool cFileManager::loadProjectFileFormFileStruct(strMtProject* project, strProje
     uint16_t projectDataSize = projectFileSize - sizeof(uint32_t);
     uint32_t storedCRC;
     memcpy(&storedCRC, (uint8_t*)pFile + projectDataSize, sizeof(storedCRC));
-    uint32_t checkCRC =
-      crcCalculator->calculate32bitCrc((uint8_t*)pFile, projectDataSize);
+    uint32_t checkCRC = crcCalculator->calculate32bitCrc((uint8_t*)pFile, projectDataSize);
     // Older IMX firmware wrote zero because its CRC calculator was a stub.
     const bool hasStoredCRC = storedCRC != 0;
 
@@ -83,7 +82,9 @@ bool cFileManager::loadProjectFileFormFileStruct(strMtProject* project, strProje
             pFile->projectDataAndHeader.projectHeader.fwVersion[2],
             b_ver > 0 && b_ver < 255 ? "beta " : "",
             b_ver,
-            !hasStoredCRC ? "n/a" : checkCRC == storedCRC ? "ok" : "err");
+            !hasStoredCRC           ? "n/a"
+            : checkCRC == storedCRC ? "ok"
+                                    : "err");
     debugLog.addLine(line);
 #endif
 
@@ -158,8 +159,7 @@ bool cFileManager::loadProjectFileFormFileStruct(strMtProject* project, strProje
 
     memcpy(&project->song, &pFile->projectDataAndHeader.project.song, sizeof(strSong));
     memcpy(&project->values, &pFile->projectDataAndHeader.project.values, sizeof(strMtValues));
-    project->defaultSequenceLength =
-      pFile->projectDataAndHeader.project.defaultSequenceLength;
+    project->defaultSequenceLength = pFile->projectDataAndHeader.project.defaultSequenceLength;
     //*proj=pFile.projectDataAndHeader.project;
     // mtProject.values=pFile.projectDataAndHeader.project.values;
     return true;
@@ -176,8 +176,7 @@ bool cFileManager::writeProjectFileToFileStruct(strMtProject* project, strProjec
             PATCH_SIZE - PROJECT_NAME_SIZE - 1);
     pFile->projectDataAndHeader.project.projectName[PROJECT_NAME_SIZE - 1] = 0;
     pFile->projectDataAndHeader.project.projectPath[PATCH_SIZE - PROJECT_NAME_SIZE - 1] = 0;
-    pFile->projectDataAndHeader.project.defaultSequenceLength =
-      project->defaultSequenceLength;
+    pFile->projectDataAndHeader.project.defaultSequenceLength = project->defaultSequenceLength;
 
     pFile->projectDataAndHeader.projectHeader.id_file[0] = 'M';
     pFile->projectDataAndHeader.projectHeader.id_file[1] = 'T';

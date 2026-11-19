@@ -1,8 +1,8 @@
 #include "configEditor/configMenu.h"
 #include "configEditor/configEditor.h"
 
-#include "configEditor/configMenuActions.h"
 #include "ThemeManager.h"
+#include "configEditor/configMenuActions.h"
 
 #include "imageViewer/imageViewerDefs.h"
 

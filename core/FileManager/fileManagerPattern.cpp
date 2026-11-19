@@ -88,8 +88,7 @@ void cFileManager::loadPatternFromWorkspace(uint8_t index)
     }
     else if (loadStatus == fileTransferFileNoExist) // brak pliku patternu
     {
-        sequencer.clearPattern(&fileManagerPatternBuffer,
-                               mtProject.defaultSequenceLength);
+        sequencer.clearPattern(&fileManagerPatternBuffer, mtProject.defaultSequenceLength);
         sequencer.copyBufferToBufferPattern((uint8_t*)&fileManagerPatternBuffer);
         preloadedPattern = loadedPattern;
 
