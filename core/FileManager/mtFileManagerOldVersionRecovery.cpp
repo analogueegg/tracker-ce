@@ -384,6 +384,12 @@ void recoveryProjectVersion16()
     receivedProject->values.recorderGainUsb = 0;
 }
 
+static void recoveryProjectVersion17()
+{
+    strMtProjectRemote* receivedProject = versionRecovery.getReadedProject();
+    receivedProject->values.maxTracksMode = kMaxTracksModeDefault;
+}
+
 //*************************************************************************INSTRUMENT
 
 strInstrumentFile* mtVersionRecovery::getReadedInstrument()
