@@ -384,12 +384,6 @@ void recoveryProjectVersion16()
     receivedProject->values.recorderGainUsb = 0;
 }
 
-static void recoveryProjectVersion17()
-{
-    strMtProjectRemote* receivedProject = versionRecovery.getReadedProject();
-    receivedProject->defaultSequenceLength = 32;
-}
-
 //*************************************************************************INSTRUMENT
 
 strInstrumentFile* mtVersionRecovery::getReadedInstrument()

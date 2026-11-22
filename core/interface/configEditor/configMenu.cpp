@@ -58,6 +58,7 @@ const strItemTypeListTextWithAction setupLimiterMode{ &mtProject.values.limiterM
 const strItemTypeListTextWithAction setupSendsMode{ &mtProject.values.sendsMode, 2, sendsModeTexts, setSendsMode };
 const strItemTypeListTextWithAction setupHeadroomMode{ &mtProject.values.isHeadroomEnabled, 2, onOffStateTexts, setHeadroomMode };
 const strItemTypeListTextWithAction setupSnapToZeroMode{ &mtProject.values.isSnapToZeroEnabled, 2, onOffStateTexts, setSnapToZeroMode };
+const strItemTypeListTextWithAction setupMaxTracks{ &mtProject.values.maxTracksMode, kMaxTracksModeCount, maxTracksTexts, setMaxTracks };
 
 cMenuItem melPerformanceSource(menuProject, "Performance presets", perfPresDesc, menuTypeItemListText, &setupPerfSource);
 cMenuItem melPatternDiv(menuProject, "Pattern divider", pattDivDesc, menuTypeItemListValues, &setupPatternDiv);
@@ -74,6 +75,7 @@ cMenuItem melLimiterMode(menuProject, "Limiter mode", limiterDesc, menuTypeItemL
 cMenuItem melSendsMode(menuProject, "Sends mode", sendsDesc,  menuTypeItemListTextWithAction, &setupSendsMode);
 cMenuItem melHeadroomMode(menuProject, "Extra headroom", headroomDesc,  menuTypeItemListTextWithAction, &setupHeadroomMode);
 cMenuItem melSnapToZeroMode(menuProject, "Snap to zero", snapToZeroDesc,  menuTypeItemListTextWithAction, &setupSnapToZeroMode);
+cMenuItem melMaxTracks(menuProject, "Max tracks", maxTracksDesc, menuTypeItemListTextWithAction, &setupMaxTracks);
 
 // general
 const strItemTypeListTextWithAction setupRadioRegion{ &mtConfig.general.radioRegion, 4, radioRegion, setRadioRegion };
@@ -205,6 +207,10 @@ const strItemTypeListText notesOutModeSetup{ &mtConfig.midi.notesOutMode, 4, mid
 const strItemTypeListText notesInChanneletup{ &mtConfig.midi.notesInChannel, 17, notesChannel };
 const strItemTypeListText ccInModeSetup{ &mtConfig.midi.ccInMode, 4, midiIn };
 const strItemTypeListText ccInChannelSetup{ &mtConfig.midi.ccInChannel, 17, notesChannel };
+const strItemTypeListText programChangeInModeSetup{ &mtConfig.midi.programChangeInMode, 4, midiIn };
+const strItemTypeListText programChangeInChannelSetup{ &mtConfig.midi.programChangeInChannel,
+                                                       17,
+                                                       notesChannel };
 const strItemTypeListText middleCSetup{ &mtConfig.midi.middleC, 4, middleC };
 const strItemTypeListTextWithAction slaveClockCompSetup{ &mtConfig.midi.slaveClockComp, std::size(slaveClockComp),  slaveClockComp, setSlaveClockCompValue };
 
@@ -233,6 +239,16 @@ cMenuItem melCCInChannel(menuMidi,
                          supportedCcInDesc,
                          menuTypeItemListText,
                          &ccInChannelSetup);
+cMenuItem melProgramChangeInMode(menuMidi,
+                                 "Program Change in",
+                                 programChangeInDesc,
+                                 menuTypeItemListText,
+                                 &programChangeInModeSetup);
+cMenuItem melProgramChangeInChannel(menuMidi,
+                                    "Program Change in ch.",
+                                    programChangeInDesc,
+                                    menuTypeItemListText,
+                                    &programChangeInChannelSetup);
 cMenuItem melMiddleC(menuMidi, "Middle C", nullptr, menuTypeItemListText, &middleCSetup);
 cMenuItem melSlaveClockComp(menuMidi,
                             "Clock sync correction",
