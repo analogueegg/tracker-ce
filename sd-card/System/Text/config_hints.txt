@@ -5,6 +5,9 @@
 [pattDiv]
 Highlights each chosen step, to give you better visual feedback in the pattern. 
 
+[defaultSequenceLength]
+Sets the number of steps in new sequences. Existing sequences are unchanged.
+
 [radioReg]
 Adjusts radio frequencies to the chosen region.
 
