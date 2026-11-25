@@ -90,6 +90,7 @@
 19. **Dual-Pane File Manager & Built-In Image/Text Viewer (All 3 Devices)**
 	* Added a dedicated **2-pane File Manager** accessible from **`File → File Manager`** with independent left/right directory panes,
 	* Non-blocking folder copy, fast same-volume move, and recursive delete with progress bar, mid-operation **Cancel**, and collision prompts (**Overwrite / Skip / Rename / All: ON-OFF**).
+	* **Metadata-Aware Project & `.pti` Renaming**: Renaming, moving, or duplicating a Polyend Tracker project folder automatically updates the embedded project name/path and renaming a `.pti` instrument updates its embedded instrument name.
 	* Added options in **`Config → General → File Manager`:** `Confirm all`, `Confirm delete`, `Never ask`. System folders are actively protected.
 	* Integrated the **File Viewer** directly into File Manager (**Button `View`** / **Enter**): opens any `.jpg`/`.jpeg` (`800 × 390` px) or text file (`.txt`, `.md`, `.json`, `.ini`, `.cfg`, `.log`, up to `128 KB` / `8,192` lines with `Up/Down/Jog` & `PgUp/PgDn`) from any folder, with sibling navigation (`Left/Right` / `<<` / `>>`). See [`docs/info_viewer.md`](docs/info_viewer.md).
 
@@ -147,6 +148,7 @@
 	* **Pattern Editor Cursor, Fill, Pad & Roll Fixes**: Fixed the cursor jumping past the end of a pattern after pasting with a large Edit Step, kept `Note Up` Rolls on the highest note (`G9`) instead of wrapping down to `C0`, fixed `Random Fx` and `Off` ranges in the Fill popup, ignored unused pads `47–48` in the `FX` pad shortcut, and kept pads in normal note layout when a MIDI or Synth instrument is selected.
 	* **Fixed Synth FX MIDI CC Control in Performance Mode**: Restored external MIDI CC control over synth effect parameters in Performance Mode.
 	* **Fixed Song Mode Block Copy/Paste**: Fixed copying and pasting song arrangement blocks smaller than 32 steps.
+	* **Fixed `Shift + Insert` Jump to Song Start on Song Screen**: Pressing `Shift + Insert` while focused on the Song slot list now jumps directly to the start of the song (Slot 1) instead of stepping back only 5 slots.
 	* **Fixed Beat-Slice Pad Lights in Live Recording (Original Tracker & Tracker+)**: Beat-slice pad guide lights now stay active in the Pattern Editor during Live Recording (`Rec + Play`), matching step-record mode.
 
 * **Performance Mode Fixes (All 3 Devices)**:
